@@ -202,8 +202,10 @@ class Model(nn.Module):
 			embeds3 = sum(embedsLst3)
 
 		if audio_adj == None:
+			# user_image, item_image,user_text, item_text
 			return embeds1[:args.user], embeds1[args.user:], embeds2[:args.user], embeds2[args.user:]
 		else:
+			# user_image, item_image,user_text, item_text, user_audio, item_audio
 			return embeds1[:args.user], embeds1[args.user:], embeds2[:args.user], embeds2[args.user:], embeds3[:args.user], embeds3[args.user:]
 
 	def reg_loss(self):
